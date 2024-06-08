@@ -14,8 +14,10 @@ export class WeatherComponent {
   feels: number = 0;
   pressure: number = 0;
   humidity: number = 0;
-  day: string = ""
+  day: string = "";
   location: string = "";
+  iconUrl: string = "";
+  icon: string = "";
 
   constructor(
     private weatherService: WeatherService
@@ -34,6 +36,8 @@ export class WeatherComponent {
           this.pressure = this.myWeather.main.pressure;
           this.humidity = this.myWeather.main.humidity;
           this.location = this.myWeather.name;
+          this.icon = this.myWeather.weather[0].icon;
+          this.iconUrl = "https://openweathermap.org/img/wn/" + this.icon + "@2x.png";
         },
         error: (error) => {
           console.log(error);

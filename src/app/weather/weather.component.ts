@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { WeatherService } from "../services/weather.service";
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: 'app-weather',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './weather.component.html',
   styleUrl: './weather.component.css'
 })
@@ -18,12 +19,14 @@ export class WeatherComponent {
   location: string = "";
   iconUrl: string = "";
   icon: string = "";
+  isLoading: boolean = true;
 
   constructor(
     private weatherService: WeatherService
   ) { }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.weatherService.getWeather("https://api.openweathermap.org/data/2.5/weather?q=Bhaktapur&appid=29a3e1374d13aac7e927cc40513d7719&units=metric").subscribe(
       {
         next: (res) => {
@@ -40,9 +43,11 @@ export class WeatherComponent {
           this.iconUrl = "https://openweathermap.org/img/wn/" + this.icon + "@2x.png";
         },
         error: (error) => {
+          this.isLoading = false;
           console.log(error);
         },
         complete: () => {
+          this.isLoading = false;
           console.log("Completed");
         }
       }

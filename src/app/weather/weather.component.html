@@ -7,15 +7,15 @@
       <img src="./sunny.png" alt="Weather Image" class="mx-auto" />
     </figure>
     <div class="text-sm text-center space-y-4">
-      <h2>Bhaktapur</h2>
+      <h2>{{ location }}</h2>
       <div class="space-y-1">
         <div class="flex flex-row gap-8 text-lg">
-          <p>Sunny day</p>
-          <span>Temp 50°C</span>
+          <p>{{ day }}</p>
+          <span>Temp {{ temperature }}°C</span>
         </div>
-        <p>Feels like 52°C</p>
-        <p>Pressure: 1024 hPa</p>
-        <p>50% Humidity</p>
+        <p>Feels like {{ feels }}°C</p>
+        <p>Pressure: {{ pressure }} hPa</p>
+        <p>{{ humidity }}% Humidity</p>
       </div>
     </div>
   </div>

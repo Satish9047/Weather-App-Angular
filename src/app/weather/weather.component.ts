@@ -20,6 +20,7 @@ export class WeatherComponent {
   iconUrl: string = "";
   icon: string = "";
   isLoading: boolean = true;
+  isError: boolean = false;
 
   constructor(
     private weatherService: WeatherService
@@ -30,7 +31,7 @@ export class WeatherComponent {
     this.weatherService.getWeather("https://api.openweathermap.org/data/2.5/weather?q=Bhaktapur&appid=29a3e1374d13aac7e927cc40513d7719&units=metric").subscribe(
       {
         next: (res) => {
-          console.log(res);
+          // console.log(res);
           this.myWeather = res;
           console.log(this.myWeather);
           this.day = this.myWeather.weather[0].main
@@ -44,6 +45,7 @@ export class WeatherComponent {
         },
         error: (error) => {
           this.isLoading = false;
+          this.isError = true;
           console.log(error);
         },
         complete: () => {

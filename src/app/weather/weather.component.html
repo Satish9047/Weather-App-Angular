@@ -1,7 +1,7 @@
 <div class="w-screen h-screen bg-gray-800 flex items-center justify-center">
   <p *ngIf="isLoading" class="text-2xl text-slate-100">Loading...</p>
   <div
-    *ngIf="!isLoading"
+    *ngIf="!isLoading && !isError"
     class="flex flex-col justify-center items-center mx-auto max-w-md text-gray-100 bg-slate-900 duration-[0.3s] rounded-lg p-8 shadow-xl hover:scale-125 ease-in-out hover:shadow-2xl"
   >
     <h1 class="text-pretty text-2xl">Weather Today</h1>
@@ -20,5 +20,14 @@
         <p>{{ humidity }}% Humidity</p>
       </div>
     </div>
+  </div>
+  <div
+    *ngIf="isError"
+    class="flex flex-col justify-center items-center mx-auto max-w-md text-gray-100 bg-slate-900 duration-[0.3s] rounded-lg p-8 shadow-xl hover:scale-125 ease-in-out hover:shadow-2xl"
+  >
+    <h3>Error While Fetching Data</h3>
+    <p class="text-sm">
+      Check your internet connection or Server is not responding
+    </p>
   </div>
 </div>

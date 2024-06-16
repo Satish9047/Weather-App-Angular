@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { WeatherService } from "../services/weather.service";
-import { CommonModule } from "@angular/common";
+import { CommonModule, NgOptimizedImage } from "@angular/common";
 
 @Component({
   selector: 'app-weather',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgOptimizedImage],
   templateUrl: './weather.component.html',
   styleUrl: './weather.component.css'
 })

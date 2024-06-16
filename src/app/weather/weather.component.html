@@ -6,7 +6,14 @@
     >
       <h1 class="text-pretty text-2xl">Weather Today</h1>
       <figure>
-        <img src="{{ iconUrl }}" alt="Weather Image" class="mx-auto" />
+        <img
+          [ngSrc]="iconUrl"
+          alt="Weather Image"
+          class="mx-auto"
+          height="100"
+          width="100"
+          priority
+        />
       </figure>
       <div class="text-sm text-center space-y-4">
         <h2>{{ location }}</h2>
